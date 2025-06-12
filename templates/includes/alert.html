@@ -1,0 +1,32 @@
+<!-- {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:{% endif %}
+            {{ message }}
+        </li>  
+        {% endfor %}
+    </ul>
+
+{% endif %} -->
+
+<div class="message-container">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="message-box {{ message.tags }}">
+        <span>{{ message }}</span>
+        <button class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+
+
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.message-box').forEach(msg => {
+      msg.style.display = 'none';
+    });
+  }, 6000); // auto-dismiss after 6 seconds
+</script>

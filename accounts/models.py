@@ -7,7 +7,6 @@ class MyAccountManager(BaseUserManager):
         if not email:
             raise ValueError("User must have an email address") and ValueError("User must have a phone number")
 
-
         if not username:
             raise ValueError("User must have an username")
 
@@ -44,7 +43,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=30, blank=True)
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
-    phone_number = models.CharField(max_length=15, unique=True)
+    phone_number = models.CharField(max_length=15)
     
     # required fields
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
