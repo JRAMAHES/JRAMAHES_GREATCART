@@ -13,22 +13,20 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">   Language </a>
                 <ul class="dropdown-menu small">
                     <li><a class="dropdown-item" href="#">English</a></li>
-                    <li><a class="dropdown-item" href="#">Arabic</a></li>
-                    <li><a class="dropdown-item" href="#">Russian </a></li>
+                    <li><a class="dropdown-item" href="#">Spanish</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> USD </a>
                 <ul class="dropdown-menu small">
                     <li><a class="dropdown-item" href="#">EUR</a></li>
-                    <li><a class="dropdown-item" href="#">AED</a></li>
-                    <li><a class="dropdown-item" href="#">RUBL </a></li>
+                    <li><a class="dropdown-item" href="#">USD</a></li>
                 </ul>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
-            <li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+            <li><a href="#" class="nav-link"> <i class="fa fa-phone"></i>Call us</a></li>
         </ul> <!-- list-inline //  -->
     </div> <!-- navbar-collapse .// -->
 </div> <!-- container //  -->
@@ -73,13 +71,23 @@
             </div> <!-- col.// -->
             <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
                 <div class="d-flex justify-content-end mb-3 mb-lg-0">
-                    <div class="widget-header">
-                        <small class="title text-muted">Welcome guest!</small>
-						<div> 
-                            <a href="{% url 'login' %}" style="color: rgb(64, 115, 64);">Login</a> <span class="dark-transp"> | </span>
-							<a href="{% url 'register' %}" style="color: rgb(64, 115, 64);"> Register</a>
-						</div>
-					</div>
+                    {% if user.id is None %}
+                        <div class="widget-header">
+                            <small class="title text-muted">Welcome Guest!</small>
+                            <div> 
+                                <a href="{% url 'login' %}" style="color: rgb(64, 115, 64);">Login</a> <span class="dark-transp"> | </span>
+                                <a href="{% url 'register' %}" style="color: rgb(64, 115, 64);"> Register</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="widget-header">
+                            <small class="title text-muted">Welcome {{ request.user.first_name }}!</small>
+                            <div> 
+                                <a href="{% url 'dashboard' %}" style="color: rgb(64, 115, 64);">Dashboard</a> <span class="dark-transp"> | </span>
+                                <a href="{% url 'logout' %}" style="color: rgb(64, 115, 64);">Logout</a>
+                            </div>
+                        </div>
+                    {% endif%}
 					<a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
                         <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
 						<span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>

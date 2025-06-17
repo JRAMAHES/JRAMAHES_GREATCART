@@ -1,1 +1,63 @@
-<h1 style="color: red;">hello loging</h1>
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-conten padding-y" style="min-height:84vh">
+
+    <!-- ============================ COMPONENT LOGIN   ================================= -->
+    {% if request.GET.command == 'verification' %}
+        <div class="messages-container">
+            <div class="message">
+                <p class="alert-pa">
+                    Verify your account. A verification link has been sent 
+                    to your email address {{ request.GET.email }}
+                </p>
+                Already have an account? <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    {% else %}
+
+        <div class="card mx-auto" style="max-width: 580px; margin-top:50px;">
+        <div class="card-body">
+        <h4 class="card-title mb-4">Sign in</h4>
+        {% include 'includes/alert.html' %}
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email Address" name="email">
+            </div>
+            <!-- form-group// -->
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="password" >
+            </div> 
+            <!-- form-group// -->
+            
+            <div class="form-group">
+                <a href="{% url 'forgotPassword' %}" class="float-right">Forgot password?</a> 
+            </div> 
+            <!-- form-group form-check .// -->
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+            </div> <!-- form-group// -->    
+        </form>
+        </div> <!-- card-body.// -->
+        </div> <!-- card .// -->
+
+        <p class="text-center mt-4">Don't have account? <a href="{% url 'register' %}">Sign up</a></p>
+        <br>
+        <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+    {% endif %}
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock content %}
+
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.message-box').forEach(msg => {
+      msg.style.display = 'none';
+    });
+  }, 6000); // auto-dismiss after 6 seconds
+</script>

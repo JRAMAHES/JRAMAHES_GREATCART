@@ -10416,4 +10416,40 @@ h3 {
 }
 
 
+.messages-container {
+  position: fixed;
+  top: 170px;
+  right: 80px;
+  z-index: 9999;
+  animation: fadein 0.5s ease;
+}
+
+.message {
+  padding: 26px 40px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #00c9ff, #92fe9d);
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+
+}
+
+.message.success {
+  background: linear-gradient(to right, #28a745, #218838);
+}
+
+.alert-pa{
+  animation: fadein 0.5s ease;
+  font-size: 18px;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 /*# sourceMappingURL=bootstrap.css.map */

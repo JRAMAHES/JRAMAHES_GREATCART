@@ -1,0 +1,11 @@
+{% autoescape off %}
+Hi {{ user.first_name }},
+
+Please click on the link below to verify your account
+
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+    I hope this message finds you well. I wanted to let you know that my previous email was sent in error. Please feel free to disregard it.
+    Apologies for the confussion, and thank you for your understanding.
+
+{% endautoescape %}
