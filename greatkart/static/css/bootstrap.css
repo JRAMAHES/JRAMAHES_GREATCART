@@ -4351,15 +4351,16 @@ input[type=button].btn-block {
 }
 
 .card {
+  margin-bottom: 2.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #f1f3ea;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.37rem;
+  border-radius: 0.1rem;
 }
 .card > hr {
   margin-right: 0;
