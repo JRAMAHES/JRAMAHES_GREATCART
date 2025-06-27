@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Billing Address</h5>
-                        <form action="{% url 'checkout' %}" method="POST">
+                        <form action="{% url 'place_order' %}" method="POST">
                             {% csrf_token %}
                             <div class="form-row">
                                 <div class="col form-group">
@@ -67,8 +67,7 @@
 
                             <div class="form-row">
                                 <label for="">Order Notes &nbsp; &RightArrowBar;</label>
-                                <textarea class="form-control" name="order_notes" rows="2" placeholder="Any special instructions or notes for your order">
-
+                                <textarea class="form-control" name="order_note" rows="2" placeholder="Any special instructions or notes for your order">
                                 </textarea>
                             </div>
 
@@ -127,10 +126,10 @@
                         </table>
                         <button type="submit"  name="submit" class="btn btn-primary btn-block">Place Order  &RightArrowBar;</button>
                         <a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
-                        </form>
                     </div> <!-- card-body.// -->
                 </div> <!-- card.// -->
             </aside> <!-- col.// -->
+        </form>
             
         </div> <!-- row.// -->
         <!-- ============================ COMPONENT 1 END .// ================================= -->

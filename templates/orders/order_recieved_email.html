@@ -1,0 +1,23 @@
+{% autoescape off %}
+
+Hi {{ user.first_name }},
+Your order has been placed successfully.
+Your order number is: {{ order.order_number }}
+
+{% if order.order_note %}
+Order Note: {{ order.order_note }}
+{% endif %}
+
+{% if order.shipping_address %}
+Shipping Address:
+{{ order.shipping_address }}
+{% else %}
+Shipping Address:
+{{ order.billing_address }}
+{% endif %}
+
+{% for cart_item in cart_items %}
+    Product: {{ cart_item.product.title }} | Quantity: {{ cart_item.quantity }}
+{% endfor %}
+
+{% endautoescape %}

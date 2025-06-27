@@ -16,6 +16,8 @@ urlpatterns = [
 
     path('accounts/', include('accounts.urls')),
 
+    path('orders/', include('orders.urls')),
+
 ]
 # For Media files in development, Only if I have MEDIA_URL and MEDIA_ROOT set in settings.py
 if settings.DEBUG:
