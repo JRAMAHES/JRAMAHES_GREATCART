@@ -17,6 +17,14 @@ Bootstrap with custom variables
   --orange: #ff9017;
   --yellow: #ffc107;
   --green: #00b517;
+  --green--light: #e3efd8; 
+  --green--light-300: #a8cc8a; 
+  --green--light-400: #88b665; 
+  --green--light-500: #6b9b47; 
+  --green--light-600: #496e30;
+  --green--light-700: #405f2c; 
+  --green--dark-900: #354c28; 
+  --green--dark-950: #304225; 
   --teal: #20c997;
   --cyan: #17a2b8;
   --white: #94a984;
@@ -39,6 +47,7 @@ Bootstrap with custom variables
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+
   --font-family-sans-serif: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }

@@ -20,3 +20,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+    def averageReview(self):
+        from store.models import ReviewRating
+        reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(average=models.Avg('rating'))
+        avg = 0
+        if reviews['average'] is not None:
+            avg = float(reviews['average'])
+        return avg
+
+    def countReview(self):
+        from store.models import ReviewRating
+        reviews = ReviewRating.objects.filter(product=self, status=True).count()
+        return reviews   
